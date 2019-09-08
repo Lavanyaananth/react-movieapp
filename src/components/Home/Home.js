@@ -54,8 +54,15 @@ class Home extends Component{
     render(){
         return(
             <div className="rmdb-home">
-            <HeroImage />
-            <SearchBar />
+            {this.state.heroImage ?
+        <div>
+          <HeroImage
+            image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.heroImage.backdrop_path}`}
+            title={this.state.heroImage.original_title}
+            text={this.state.heroImage.overview}
+          />
+          <SearchBar callback={this.searchItems} />
+        </div> : null }
             <FourColGrid />
             
             <Spinner />
