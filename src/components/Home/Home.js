@@ -35,7 +35,7 @@ class Home extends Component{
             searchTerm : ''
         })
 
-        if(searchTerm = ''){
+        if(searchTerm === ''){
             endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1}`; 
         }
         else{
@@ -51,25 +51,27 @@ class Home extends Component{
         if (this.state.searchTerm === '') {
           endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
         } else {
-          endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query${this.state.searchTerm}&page=${this.state.currentPage + 1}`;
+          endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${this.state.searchTerm}&page=${this.state.currentPage + 1}`;
         }
         this.fetchItems(endpoint);
     }
 
-    fetchItems =(endpoint) => {
+    fetchItems = (endpoint) => {
         fetch(endpoint)
         .then(result => result.json())
-        .then(result =>{
+        .then(result => {
             console.log(result);
-            this.setState({
-                movies :[...this.state.movies, ...result.results],
-                heroImage:this.state.heroImage || result.results[0],
-                loading:false,
-                currentPage:result.page,
-                totalPages:result.total_pages
-            })
+          this.setState({
+            movies: [...this.state.movies,...result.results],
+            heroImage: this.state.heroImage || result.results[0],
+            loading: false,
+            currentPage: result.page,
+            totalPages: result.total_pages
+          })
         })
-    }
+        .catch(error => console.error('Error:', error))
+      }
+    
     render(){
         return(
             <div className="rmdb-home">
@@ -82,10 +84,28 @@ class Home extends Component{
           />
           <SearchBar callback={this.searchItems} />
         </div> : null }
-            <FourColGrid />
-            
-            <Spinner />
-            <LoadMoreBtn />
+
+        <div className="rmdb-home-grid">
+            <FourColGrid
+            header = {this.state.searchTerm ? 'Search Result' : 'Popular Movies'}
+            loading={this.state.loading}
+            >
+            {this.state.movies.map ( (element, i) => {
+              return <MovieThumb
+                        key={i}
+                        clickable={true}
+                        image={element.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}` : './images/no_image.jpg'}
+                        movieId={element.id}
+                        movieName={element.original_title}
+                     />
+            })}
+            </FourColGrid>
+       
+            {this.state.loading ? <Spinner></Spinner> : null}
+            {(this.state.currentPage <= this.state.totalPages && !this.state.loading) ?
+            <LoadMoreBtn text="Load More" onClick={this.loadMoreItems} />
+            : null }
+             </div>
             </div>
         )
     }
