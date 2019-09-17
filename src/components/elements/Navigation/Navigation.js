@@ -4,8 +4,13 @@ import './Navigation.css';
 
 const Navigation = (props) =>{
     return(
-        <div>
-            Navigation
+        <div className="rmdb-navigation">
+            <div className="rmbd-navigation-content">
+                <Link to= "/">
+                    <p>Home</p>
+                </Link>
+                <p> {props.movie}</p>
+            </div>
         </div>
     )
 }
