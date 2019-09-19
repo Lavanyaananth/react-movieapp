@@ -3,7 +3,7 @@
   min-height: 30px;
   background: #1c1c1c;
   border-radius: 20px;
-  padding: 25px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -19,7 +19,7 @@
 
 .rmdb-actor-name {
   display: block;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 22px;
   color:#fff;
   box-sizing: border-box;
@@ -28,7 +28,7 @@
 
 .rmdb-actor-character {
   display: block;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
   color:#fff;
  

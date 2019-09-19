@@ -14,28 +14,28 @@
   height: 55px;
   background:#353535;
   margin: 0 auto;
-  border-radius: 40px;
+  border-radius: 20px;
   position: relative;
   color: #fff;
 }
 
 .rmdb-fa-search {
   position: absolute;
-  left: 20px;
-  top: 12px;
+  left: 17px;
+  top: 7px;
   color: #fff;
 }
 
 .rmdb-searchbar-input {
-  font-family: 'Abel', sans-serif;
-  font-size: 38px;
-  position: relative;
-  margin: 8px 0 0 60px;
-  border: 0;
-  background: transparent;
-  height: 40px;
-  width: 90%;
-  color: #fff;
+  font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    position: relative;
+    margin: 7px 0 0 60px;
+    border: 0;
+    background: transparent;
+    height: 40px;
+    width: 90%;
+    color: #fff;
 }
 
 .rmdb-searchbar-input:focus {
