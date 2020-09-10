@@ -1,7 +1,7 @@
 .rmdb-header {
   width: 100%;
   height: auto;
-  background: #1c1c1c;
+  background: #fff;
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -15,7 +15,14 @@
   box-sizing: border-box;
   overflow: hidden;
 }
-
+.tempLogo{
+  text-transform: uppercase;
+    font-size: 32px;
+    /* text-decoration: none!important; */
+    color: #000;
+    margin-top: 30px;
+    display: inline-block;
+}
 .rmdb-logo {
   width: 300px;
   margin-top: 20px;
