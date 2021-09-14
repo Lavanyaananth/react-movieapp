@@ -22,12 +22,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>The Movie Hut</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+   
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -39,5 +37,46 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script type="text/javascript">
+      (function() {
+        window.skillStore = {
+          clientId: "RWbJ35ygb" // Unique  Client ID
+        };
+        var s1 = document.createElement("script"),
+          s2 = document.createElement("script"),
+          s3 = document.createElement("script"),
+          s0 = document.getElementsByTagName("body");
+        // make this as "head" or "body" depending on where you include this script in client
+        s1.async = true;
+        s2.async = true;
+        s3.async = true;
+        s1.src = "https://holofy-widget-preact.s3.us-east-2.amazonaws.com/index.js";
+        s2.src = "https://holofy-widget-preact.s3.us-east-2.amazonaws.com/ddt.min.js";
+        s3.src = "https://cdn.jsdelivr.net/npm/hls.js@latest";
+        s1.charset = "UTF-8";
+        s2.charset = "UTF-8";
+        s3.charset = "UTF-8";
+        s1.async = true;
+        s2.async = true;
+        s3.async = true;
+        s1.setAttribute("crossorigin", "*");
+        s2.setAttribute("crossorigin", "*")
+        s3.setAttribute("crossorigin", "*")      
+        s0[0].appendChild(s1);
+        s0[0].appendChild(s2);
+        s0[0].appendChild(s3);
+        var l1 = document.createElement("link"),
+          l2 = document.createElement("link"),
+          l0 = document.getElementsByTagName("head");
+        l1.rel = "stylesheet";
+        l1.type = "text/css";
+        l1.href = "https://holofy-widget-preact.s3.us-east-2.amazonaws.com/index.css";
+        l2.rel = "stylesheet";
+        l2.type = "text/css";
+        l2.href = "https://fonts.googleapis.com/css?family=Roboto";
+        l0[0].appendChild(l2);
+        l0[0].appendChild(l1);
+      })();
+    </script>
   </body>
 </html>
